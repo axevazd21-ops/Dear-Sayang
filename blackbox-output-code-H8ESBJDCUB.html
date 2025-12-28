@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf Sayangku</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .upload-section {
+            margin: 20px 0;
+        }
+        .upload-slot {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 2px dashed #e91e63;
+            border-radius: 10px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-slot:hover {
+            background: #ffebee;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .media-display {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        .heart {
+            font-size: 3em;
+            color: #e91e63;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hai Sayang…</h1>
+        <p>Gimana kabar kamu sekarang?<br>
+        Aku harap kamu baik-baik saja, walaupun hati kamu lagi capek dan kecewa sama aku.</p>
+        
+        <p>Di sini, aku kangen kamu…<br>
+        Bukan cuma kangen ngobrol, kangen wajah atau suara kamu, tapi kangen kehadiran kamu sebagai pasangan yang selama ini aku anggap serius. Jujur, aku juga sedih karena aku tahu aku lagi nggak ada di posisi yang baik di hati kamu.</p>
+        
+        <p>Aku paham kalau sekarang kamu butuh waktu dan ruang. Aku akan menghormati itu. Tapi aku tidak pergi, dan aku tidak menghilang. Aku gunakan waktu ini untuk berbenah atas kesalahan aku, bukan menjauh. Aku akan tetap berdiri dengan komitmen aku, sambil memperbaiki diri dan membuktikan lewat tindakan, bukan sekadar janji. Aku pengen jadi orang yang lebih baik buat kamu, yang bisa bikin kamu ngerasa aman, tenang, dan dihargai.</p>
+        
+        <p>Jaga diri kamu baik-baik menjelang aku pulang.<br>
+        Aku tetap di sini, dengan niat yang sama, dan perasaan yang tidak berubah. Aku akan pulang dengan tenang, untuk nemuin kamu, dimanapun kamu.</p>
+        
+        <p class="heart">Ps : I Love you ❤️</p>
+        
+        <div class="upload-section">
+            <div class="upload-slot" id="photo-slot">
+                <label for="photo-upload">Upload Foto</label>
+                <input type="file" id="photo-upload" accept="image/*">
+            </div>
+            <div class="upload-slot" id="video-slot">
+                <label for="video-upload">Upload Video</label>
+                <input type="file" id="video-upload" accept="video/*">
+            </div>
+        </div>
+        
+        <div id="media-display"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk menangani upload foto
+        document.getElementById('photo-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = 'media-display';
+                document.getElementById('media-display').appendChild(img);
+                // Sembunyikan slot upload
+                document.getElementById('photo-slot').style.display = 'none';
+            }
+        });
+
+        // Fungsi untuk menangani upload video
+        document.getElementById('video-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const video = document.createElement('video');
+                video.src = url;
+                video.controls = true;
+                video.className = 'media-display';
+                document.getElementById('media-display').appendChild(video);
+                // Sembunyikan slot upload
+                document.getElementById('video-slot').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
